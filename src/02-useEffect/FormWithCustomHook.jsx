@@ -3,7 +3,7 @@ import { useForm } from "../hooks/useForm";
 
 export const FormWithCustomHook = () => {
     
-    const { formState, onInputChange, username, password, email } = useForm({
+    const { onResetForm, onInputChange, username, password, email } = useForm({
         username: '',
         password: '',
         email: '' 
@@ -62,7 +62,14 @@ export const FormWithCustomHook = () => {
                         aria-describedby="emailHelp" 
                         value={email}/>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>            
+                </div>      
+
+                <button 
+                    type="submit"  
+                    onClick={onResetForm} 
+                    className="btn btn-primary">
+                        Borrar
+                </button>      
         </>
     )
 }
