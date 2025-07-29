@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Message } from "./Message";
 
 export const SimpleForm = () => {
     const [formState, setFormState] = useState({
@@ -16,13 +17,30 @@ export const SimpleForm = () => {
         });
     };
 
+    useEffect(()=> {
+        // This effect runs on every render
+        // console.log('useEffect called');
+    }, []);
+    // Esto solo se ejecuta una vez al montar el componente, esto porque se inicializa el array de dependencias vacío
+    //se recomienda usar un efecto por cada funcionalidad que se necesite
+
+    useEffect(()=> {
+        // This effect runs on every render
+        // console.log('username changed');
+    }, [username]);
+
+    useEffect(()=> {
+        // This effect runs on every render
+        // console.log('email changed');
+    }, [email]);
+
     return (
         <>
             <h1>Simple Form</h1>
             <hr />
-            <form>
+            
                 <div className="mb-3">
-                    <label htmlFor="username" className="form-label">{username}</label>
+                    <label htmlFor="username" className="form-label">Username</label>
                     <input onChange={onInputChange} type="username" name="username" placeholder="Username" className="form-control" id="username" value={username}/>
                 </div>      
                 <div className="mb-3">
@@ -31,8 +49,9 @@ export const SimpleForm = () => {
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>      
             
-                <button type="submit" className="btn btn-primary">Submit</button>   
-            </form>
+               {
+                (username === 'Bastian') && <Message />
+               }           
         </>
     )
 }
