@@ -17,7 +17,7 @@ export const MultipleCustomHooks = () => {
             <h3>Información de Pokemon</h3>
             <hr />
 
-             {
+            {
                 !isLoading && 
                 <>
                     <ButtonPreviousNext 
@@ -29,7 +29,7 @@ export const MultipleCustomHooks = () => {
                     />
                     <hr />
                     <PokemonCard
-                        key={data.id}
+                        key={data.name + data.id}
                         data={data}
                     />                  
                 </>
