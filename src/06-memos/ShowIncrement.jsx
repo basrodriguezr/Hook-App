@@ -1,13 +1,13 @@
 
 export const ShowIncrement = ({increment}) => {
-  return (
-    <>
-        <button
-            className="btn btn-primary"
-            onClick={() => {increment();}}    
-        >
-            Increment
-        </button>
-    </>
-  )
+    return (
+        <>
+            <button
+                className="btn btn-primary"
+                onClick={() => {increment(10);}}    
+            >
+                Increment
+            </button>
+        </>
+    )
 }
